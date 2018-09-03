@@ -15,7 +15,6 @@ from codecs import open
 
 from django.conf import settings
 settings.configure()
-from hashid_field import __version__
 
 here = os.path.abspath(os.path.dirname(__file__))
 
@@ -23,22 +22,13 @@ here = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
-if sys.argv[-1] == 'publish':
-    os.system('python setup.py bdist_wheel')
-    os.system('python setup.py sdist')
-    os.system('twine upload dist/*')
-    print("You probably want to also tag the version now:")
-    print("  git tag -a %s -m 'version %s'" % (__version__, __version__))
-    print("  git push --tags")
-    sys.exit()
-
 setup(
     name='django-hashid-field',
 
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version=__version__,
+    version='2.1.1',
 
     description='A Hashids obfuscated Django Model Field',
     long_description=long_description,
